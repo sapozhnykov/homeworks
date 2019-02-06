@@ -7,13 +7,13 @@ public class InsertionSort {
         int[] newArray = Arrays.copyOf(ints, ints.length);
 
         for(int curIndex = 1; curIndex < newArray.length; curIndex++) {
-            int cur_element = newArray[curIndex];
+            int curElement = newArray[curIndex];
             int j = curIndex;
-            while (j > 0 && newArray[j - 1] > cur_element) {
+            while (j > 0 && newArray[j - 1] > curElement) {
                 newArray[j] = newArray [j - 1];
                 j = j - 1;
             }
-            newArray[j] = cur_element;
+            newArray[j] = curElement;
         }
 
         return newArray;
