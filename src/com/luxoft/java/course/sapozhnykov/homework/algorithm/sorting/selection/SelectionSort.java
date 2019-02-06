@@ -6,18 +6,18 @@ public class SelectionSort {
     public static int[] sort(int[] ints) {
         int[] newArray = Arrays.copyOf(ints, ints.length);
 
-        for(int cur_index = 0; cur_index < newArray.length - 1; cur_index++) {
-            int indexOfMin = cur_index;
+        for(int curIndex = 0; curIndex < newArray.length - 1; curIndex++) {
+            int indexOfMin = curIndex;
 
-            for(int shiftIndex = cur_index + 1; shiftIndex < newArray.length; shiftIndex++) {
+            for(int shiftIndex = curIndex + 1; shiftIndex < newArray.length; shiftIndex++) {
                 if(newArray[shiftIndex] < newArray[indexOfMin]) {
                     indexOfMin = shiftIndex;
                 }
             }
-            if(indexOfMin != cur_index) {
+            if(indexOfMin != curIndex) {
                 int temp = newArray[indexOfMin];
-                newArray[indexOfMin] = newArray[cur_index];
-                newArray[cur_index] = temp;
+                newArray[indexOfMin] = newArray[curIndex];
+                newArray[curIndex] = temp;
             }
         }
 
