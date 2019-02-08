@@ -15,7 +15,7 @@ public class SumOfNumPairs {
 
     public static int enterNumber() {
         int number = -1;
-        while (number < 1000 || number > 9999) {
+        while (number < 0 || number > 9999) {
             Scanner scanner = new Scanner(System.in);
             showToDoText();
             try {
@@ -24,7 +24,7 @@ public class SumOfNumPairs {
             catch (InputMismatchException e) {
                 showErrorText();
             }
-            if(number < 1000 || number > 9999) {
+            if(number < 0 || number > 9999) {
                 showErrorText();
             }
         }
