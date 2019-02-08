@@ -5,41 +5,45 @@ public class BinarySearch {
         if(array.length == 0) {
             return -1;
         }
-        else {
-            int firstElement = array[0];
-            int lastElement = array[array.length - 1];
-            if(firstElement < lastElement) {
-                return seacrhAscending(number, array, 0, array.length - 1);
+
+        int firstElement = array[0];
+        int lastElement = array[array.length - 1];
+        int minIndex = 0;
+        int maxIndex = array.length - 1;
+        boolean isAscending = false;
+
+        if(firstElement < lastElement) {
+            isAscending = true;
+        }
+
+        while (minIndex != maxIndex) {
+            int middleIndex = minIndex + (maxIndex - minIndex) / 2;
+            if(array[middleIndex] == number) {
+                return middleIndex;
+            }
+            if(minIndex == middleIndex) {
+                break;
+            }
+            if(array[middleIndex] > number) {
+                if(isAscending){
+                    maxIndex = middleIndex;
+                }
+                else {
+                    minIndex = middleIndex+1;
+                }
             }
             else {
-                return seacrhDescending(number, array, 0, array.length - 1);
+                if(isAscending) {
+                    minIndex = middleIndex + 1;
+                }
+                else {
+                    maxIndex = middleIndex;
+                }
             }
         }
-    }
-
-    private static int seacrhAscending(int number, int[] array, int minIndex, int maxIndex) {
-        int middleIndex = minIndex + (maxIndex - minIndex)/2;
-        if(array[middleIndex] == number) {
-            return middleIndex;
-        } else if(middleIndex == maxIndex && array[middleIndex] != number) {
-            return -1;
-        } else if(array[middleIndex] < number) {
-            return seacrhAscending(number, array, middleIndex + 1, maxIndex);
-        } else {
-            return seacrhAscending(number, array, minIndex, middleIndex);
+        if(array[minIndex] == number) {
+            return minIndex;
         }
-    }
-
-    private static int seacrhDescending(int number, int[] array, int minIndex, int maxIndex) {
-        int middleIndex = minIndex + (maxIndex - minIndex)/2;
-        if(array[middleIndex] == number) {
-            return middleIndex;
-        } else if(middleIndex == maxIndex && array[middleIndex] != number) {
-            return -1;
-        } else if(array[middleIndex] < number) {
-            return seacrhDescending(number, array, minIndex, middleIndex);
-        } else {
-            return seacrhDescending(number, array, middleIndex + 1, maxIndex);
-        }
+        return -1;
     }
 }

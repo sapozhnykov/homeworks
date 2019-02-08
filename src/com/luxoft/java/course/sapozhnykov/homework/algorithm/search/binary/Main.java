@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         //Ascending array example
-        //int [] arrayInt = {2, 4, 5, 8, 10, 20};
+        int [] arrayInt = {2, 4, 5, 8, 10, 20};
 
         //Descending array example
-        int [] arrayInt = {20, 18, 15, 10, 4, 2};
+//        int [] arrayInt = {20, 18, 15, 10, 4, 2};
 
-        int searchingNum = 2;
+        int searchingNum = 4;
         int index = BinarySearch.search(searchingNum, arrayInt);
 
         System.out.println("Current Array:");
